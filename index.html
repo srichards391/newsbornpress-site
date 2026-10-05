@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Newsborn Press</title>
+<meta name="description" content="Personalized newspapers for new arrivals, written and set for the day your baby was born. Every baby makes the front page.">
+<meta property="og:title" content="Newsborn Press">
+<meta property="og:description" content="Personalized newspapers for new arrivals. Every baby makes the front page.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://newsbornpress.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#F1EDE4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=UnifrakturCook:wght@700&display=swap">
+<style>
+/* Layout: the site is set like a front page: folio, nameplate, banner, then sections closed by heavy ink rules. One Stork Blue accent. */
+:root{
+  --newsprint:#F1EDE4; --newsprint-deep:#E6E0D2; --ink:#1B1D21; --graphite:#4A4E55;
+  --rule:#B7AE9B; --rule-faint:#D3CBBB; --stork:#355C7D; --blush:#B9716A; --gold:#A8823A; --edge:#1B1D21;
+  --f-nameplate:"UnifrakturCook","Old English Text MT",Georgia,serif;
+  --f-head:"Libre Franklin","Franklin Gothic Medium","Arial Narrow",Arial,sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --newsprint:#23211D; --newsprint-deep:#2E2B26; --ink:#ECE7DC; --graphite:#BDB6A8;
+  --rule:#5E584D; --rule-faint:#3A3631; --stork:#8FB3D1; --blush:#E0A49C; --gold:#D6B477; --edge:#BDB6A8; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --newsprint:#23211D; --newsprint-deep:#2E2B26; --ink:#ECE7DC; --graphite:#BDB6A8;
+  --rule:#5E584D; --rule-faint:#3A3631; --stork:#8FB3D1; --blush:#E0A49C; --gold:#D6B477; --edge:#BDB6A8; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--newsprint);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.55;margin:0;padding-inline:20px;padding-block:24px 56px}
+.sheet{max-width:1080px;margin-inline:auto;display:flex;flex-direction:column;gap:64px}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--stork)}
+:focus-visible{outline:3px solid var(--stork);outline-offset:3px}
+.label{font-family:var(--f-head);font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--stork)}
+.caption{font-family:var(--f-head);font-size:13px;color:var(--graphite);letter-spacing:.02em}
+.muted{color:var(--graphite)}
+
+/* masthead */
+.mast{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.folio{width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 18px;font-family:var(--f-head);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:8px}
+.folio .accent{color:var(--stork)}
+.kicker{margin-top:18px;font-style:italic;color:var(--graphite);font-size:17px}
+.nameplate{font-family:var(--f-nameplate);font-weight:700;font-size:clamp(48px,10vw,112px);line-height:1}
+.motto{font-style:italic;color:var(--graphite);font-size:18px}
+.mast .rule{width:100%;border-top:3px solid var(--ink);margin-top:14px}
+.banner{font-family:var(--f-head);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.92;font-size:clamp(46px,10.5vw,124px);margin-top:20px}
+.deck{max-width:60ch;margin:16px auto 0;color:var(--graphite);font-size:20px;line-height:1.45}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:22px}
+.btn{font-family:var(--f-head);font-weight:800;font-size:15px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:13px 20px;border:2px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--newsprint)}
+.btn:hover{border-color:var(--stork)}
+
+/* sections */
+.section{display:flex;flex-direction:column;gap:24px}
+.section > header{display:flex;flex-direction:column;gap:8px;border-bottom:3px solid var(--ink);padding-bottom:14px}
+.section h2{font-family:var(--f-head);font-weight:900;font-size:clamp(30px,4.6vw,46px);line-height:1.04;letter-spacing:-.01em}
+.lede{max-width:65ch;font-size:19px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:40px;align-items:start}
+.cols > *{min-width:0}
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+
+.rows{display:flex;flex-direction:column}
+.rows > div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-block:11px;border-bottom:1px dotted var(--rule)}
+.rows b{font-family:var(--f-head);font-weight:800;font-size:16px}
+.rows span{color:var(--graphite);text-align:right}
+
+.reel{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
+.reel img{flex:0 0 auto;width:min(62vw,220px);scroll-snap-align:start;border:1px solid var(--rule)}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:0;border-top:1px solid var(--rule)}
+.step{padding:18px 18px 18px 0;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule-faint)}
+.step strong{font-family:var(--f-head);font-weight:900;font-size:44px;line-height:1;color:var(--stork)}
+.step h3{font-family:var(--f-head);font-weight:800;font-size:20px}
+.step p{color:var(--graphite);font-size:16px;line-height:1.45}
+
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:3px solid var(--ink)}
+.file{padding:16px 16px 4px 0;display:flex;flex-direction:column;gap:2px}
+.file + .file{border-left:1px solid var(--rule-faint);padding-left:16px}
+.file strong{font-family:var(--f-head);font-weight:900;font-size:40px;line-height:1;color:var(--stork)}
+.file span{font-size:15px;color:var(--graphite)}
+
+.inks{display:flex;flex-wrap:wrap;gap:18px}
+.ink{display:flex;align-items:center;gap:10px;font-family:var(--f-head);font-weight:800;font-size:15px}
+.ink i{display:block;width:34px;height:34px;border:1px solid var(--edge)}
+
+.quote{border-left:4px solid var(--stork);padding:4px 0 4px 18px;font-size:22px;font-style:italic;line-height:1.4}
+.sig{font-family:var(--f-head);font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+
+.contact{background:var(--newsprint-deep);border-top:3px solid var(--ink);padding:28px 24px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.contact h2{font-family:var(--f-head);font-weight:900;font-size:clamp(26px,4vw,36px)}
+.email{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.email code{font-family:var(--f-head);font-weight:800;font-size:20px;color:var(--ink);user-select:all}
+.status{font-family:var(--f-head);font-size:13px;color:var(--graphite);min-height:1em}
+
+.colophon{border-top:3px solid var(--ink);padding-top:16px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 24px;font-family:var(--f-head);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite)}
+.colophon .mark{display:inline-flex;align-items:center;gap:8px}
+.colophon svg{width:22px;height:22px}
+@media (prefers-reduced-motion:no-preference){.reel{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+
+<main class="sheet">
+
+<section class="mast" aria-label="Masthead">
+  <div class="folio"><span>Vol. I · No. 1</span><span>Erie, Pennsylvania</span><span class="accent">Est. 2026</span><span>Opening soon on Etsy</span></div>
+  <p class="kicker">Personalized newspapers for new arrivals</p>
+  <h1 class="nameplate">The Newsborn Press</h1>
+  <p class="motto">Every baby makes the front page.</p>
+  <div class="rule"></div>
+  <p class="banner">Extra! Extra!</p>
+  <p class="deck">Your baby's own newspaper, written and set for the day they arrived. Their name in the nameplate, their photo under the banner, and the real weather, prices and No. 1 song from the day they were born.</p>
+  <div class="cta-row">
+    <a class="btn primary" href="#paper">See a sample paper</a>
+    <a class="btn" href="#contact">Get first word</a>
+  </div>
+</section>
+
+<section class="section" id="paper">
+  <header><span class="label">The Birth Edition</span><h2>A real front page for the biggest news of the year</h2></header>
+  <div class="cols">
+    <figure>
+      <img src="assets/hero.jpg" alt="Sample Birth Edition, The Hazel Gazette: nameplate, a SHE'S HERE banner headline, an illustrated swaddled baby, the lead story, vital statistics, weather, markets, prices, the Hot 100, sports and a letter from Mom" width="1400" height="1400" loading="eager">
+      <figcaption class="caption">Sample: The Hazel Gazette. The family is fictional; the Oct. 1, 2026 facts are real. Your photo goes where the drawing is.</figcaption>
+    </figure>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="lede">This isn't a template you fill in yourself. You answer a few questions and send your favorite photo, and we write and lay out the paper for you.</p>
+      <div class="rows" aria-label="What's on the page">
+        <div><b>Nameplate</b><span>You name the paper</span></div>
+        <div><b>Banner and photo</b><span>"She's Here," with your favorite picture</span></div>
+        <div><b>Lead story</b><span>Written from your arrival story</span></div>
+        <div><b>Vital statistics</b><span>Time, weight, length, first visitor</span></div>
+        <div><b>Family masthead</b><span>Grandpa as Editor in Chief, the cat as Staff Mascot</span></div>
+        <div><b>The day itself</b><span>Weather, markets, prices, the Hot 100, sports</span></div>
+        <div><b>The world they were born into</b><span>Who was in charge and what happened, kept neutral</span></div>
+        <div><b>A letter</b><span>From you, written that day</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="included">
+  <header><span class="label">What you get</span><h2>Ready to frame, print or text</h2></header>
+  <div class="files">
+    <div class="file"><strong>11×17</strong><span>Broadsheet to print and frame</span></div>
+    <div class="file"><strong>8½×11</strong><span>Letter edition for home printers</span></div>
+    <div class="file"><strong>Grey</strong><span>Classic newsprint versions of both</span></div>
+    <div class="file"><strong>5</strong><span>Phone cards for the family group text</span></div>
+  </div>
+  <p class="lede muted">Nobody prints anything the first week home, but everybody texts. Swipe through the five cards the way the family will see them.</p>
+  <div class="reel" tabindex="0" aria-label="Five sample phone cards; scroll sideways">
+    <img src="assets/card1.jpg" alt="Phone card 1: the front page with the banner and photo" width="600" height="1066" loading="lazy">
+    <img src="assets/card2.jpg" alt="Phone card 2: the lead story and vital statistics" width="600" height="1066" loading="lazy">
+    <img src="assets/card3.jpg" alt="Phone card 3: weather, markets and prices" width="600" height="1066" loading="lazy">
+    <img src="assets/card4.jpg" alt="Phone card 4: the world she was born into, the Hot 100 and sports" width="600" height="1066" loading="lazy">
+    <img src="assets/card5.jpg" alt="Phone card 5: around town, a letter from Mom and the masthead" width="600" height="1066" loading="lazy">
+  </div>
+</section>
+
+<section class="section" id="how">
+  <header><span class="label">How it works</span><h2>Four steps, about a week</h2></header>
+  <div class="steps">
+    <div class="step"><strong>1</strong><h3>Order</h3><p>Add your baby's name, birth date and email.</p></div>
+    <div class="step"><strong>2</strong><h3>Tell us the story</h3><p>A 10-minute questionnaire and your favorite photo.</p></div>
+    <div class="step"><strong>3</strong><h3>We write and set it</h3><p>Every fact researched for the day and town they arrived.</p></div>
+    <div class="step"><strong>4</strong><h3>Download and print</h3><p>A proof in 3 to 5 business days, with one round of edits included.</p></div>
+  </div>
+</section>
+
+<section class="section" id="style">
+  <header><span class="label">Your style</span><h2>Pick a nameplate and an ink</h2></header>
+  <div class="cols">
+    <figure>
+      <img src="assets/styles.jpg" alt="Three nameplate styles for The Hazel Gazette: Traditional blackletter, Classic Didone and Letterpress small caps" width="1000" height="1000" loading="lazy">
+    </figure>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <p class="lede"><b>Traditional</b> is the blackletter of an old city daily. <b>Classic</b> is a crisp Didone. <b>Letterpress</b> looks hand-set in a small-town shop.</p>
+      <div class="inks" aria-label="Accent inks">
+        <span class="ink"><i style="background:#355C7D"></i>Stork Blue</span>
+        <span class="ink"><i style="background:#B9716A"></i>Blush</span>
+        <span class="ink"><i style="background:#A8823A"></i>Gold</span>
+      </div>
+      <p class="muted">Gold is saved for milestone editions, like a first birthday.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <header><span class="label">About the press</span><h2>Started at a kitchen table in Erie</h2></header>
+  <div class="cols">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p class="lede">Newsborn Press started at a kitchen table in Erie, Pennsylvania, in the fall of 2026. A new dad made his daughter a newspaper for the day she was born, with the weather off the lake, the price of gas, the song on the radio and a letter from her parents. The family kept asking for copies.</p>
+      <p class="lede">So now we make them for other families. Every Birth Edition is written for one baby and checked by hand.</p>
+      <p class="sig">Steve Richards, Founder &amp; Pressman</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="quote">Thanks for letting us cover your big news.</p>
+      <div class="rows" aria-label="How we work">
+        <div><b>Written by a person</b><span>Every word checked by hand</span></div>
+        <div><b>Real facts only</b><span>Researched for the exact day and town</span></div>
+        <div><b>Neutral news</b><span>Families of every stripe, no opinions</span></div>
+        <div><b>Your photos stay yours</b><span>Deleted 30 days after delivery</span></div>
+      </div>
+      <p class="caption">We use AI tools to help research the day's facts and draft copy. A person reads and checks every word before it reaches you.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <span class="label">Opening soon</span>
+  <h2 id="contact-h">The shop opens on Etsy soon</h2>
+  <p class="lede">Expecting, or know someone who is? Write to us and we'll let you know the day the press starts running.</p>
+  <div class="email">
+    <code id="addr">hello@newsbornpress.com</code>
+    <button class="btn" type="button" id="copy">Copy address</button>
+  </div>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+</section>
+
+<footer class="colophon">
+  <span>Press run: 1</span>
+  <span class="mark"><svg viewBox="0 0 64 64" role="img" aria-label="Newsborn Press paper-hat mark"><path d="M8 46 L32 12 L56 46 Z" fill="var(--newsprint)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/><path d="M4 46 H60 V54 H4 Z" fill="var(--stork)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/><path d="M22 30 H40 M18 36 H44 M15 41 H48" stroke="var(--ink)" stroke-width="2" opacity=".55"/></svg>Set and printed by Newsborn Press</span>
+  <span>Erie, Pennsylvania · Est. 2026</span>
+</footer>
+
+</main>
+<script>
+(function(){
+  var btn=document.getElementById('copy'), st=document.getElementById('status'), addr=document.getElementById('addr');
+  btn.addEventListener('click',function(){
+    var text=addr.textContent;
+    function pick(){var r=document.createRange();r.selectNodeContents(addr);var s=window.getSelection();s.removeAllRanges();s.addRange(r);st.textContent='Selected. Press ⌘C or Ctrl+C to copy.';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){st.textContent='Copied to your clipboard.';},pick);}else{pick();}
+  });
+})();
+</script>
+
+</body>
+</html>
