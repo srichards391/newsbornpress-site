@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-shop="soon">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Newsborn Press</title>
-     <meta name="p:domain_verify" content="c083eeeed482a2c7479dff882aba1f59"/>
+<meta name="p:domain_verify" content="c083eeeed482a2c7479dff882aba1f59"/>
 <meta name="description" content="Personalized newspapers for new arrivals, written and set for the day your baby was born. Every baby makes the front page.">
 <meta property="og:title" content="Newsborn Press">
 <meta property="og:description" content="Personalized newspapers for new arrivals. Every baby makes the front page.">
@@ -107,24 +107,109 @@ figure{margin:0;display:flex;flex-direction:column;gap:8px}
 .colophon .mark{display:inline-flex;align-items:center;gap:8px}
 .colophon svg{width:22px;height:22px}
 @media (prefers-reduced-motion:no-preference){.reel{scroll-behavior:smooth}}
+/* v1.1: launch switch. data-shop="soon" until launch, "open" after (set in SHOP config at the bottom) */
+[data-shop="soon"] .when-open,[data-shop="open"] .when-soon{display:none !important}
+
+/* order */
+.order{border:3px solid var(--ink);padding:28px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:32px;align-items:start}
+.order > *{min-width:0}
+.price{font-family:var(--f-head);font-weight:900;font-size:64px;line-height:1}
+.price small{font-size:15px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--graphite);margin-left:10px}
+.ticks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.ticks li{padding-left:24px;position:relative}
+.ticks li::before{content:"";position:absolute;left:0;top:.68em;width:12px;height:3px;background:var(--stork)}
+.paths{display:flex;flex-direction:column;gap:14px}
+.paths .btn{text-align:center}
+.alt{border-top:1px dotted var(--rule);padding-top:14px;display:flex;flex-direction:column;gap:4px}
+.alt b{font-family:var(--f-head);font-weight:800;font-size:17px}
+.alt p{color:var(--graphite);font-size:16px;line-height:1.45}
+
+/* faq */
+.faq{border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule-faint);padding:14px 0}
+.faq summary{font-family:var(--f-head);font-weight:800;font-size:18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--stork);font-weight:900;font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin-top:10px;color:var(--graphite);max-width:65ch;font-size:17px}
+
+/* signup */
+.signup{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;width:100%}
+.field{display:flex;flex-direction:column;gap:4px;flex:1 1 220px;min-width:0}
+.field label{font-family:var(--f-head);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite)}
+.field input{font:inherit;font-size:17px;padding:10px 12px;min-height:48px;border:2px solid var(--ink);border-radius:0;background:var(--newsprint);color:var(--ink);width:100%}
+.signup .btn{min-height:48px}
+
+/* v1.2: sticky top bar with section menu, per-section CTAs, back to top */
+html{scroll-padding-top:72px}
+.topbar{position:sticky;top:0;z-index:20;margin-inline:-20px;margin-top:-24px;margin-bottom:24px;padding:10px 20px;background:var(--newsprint);border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.topbar .brand{font-family:var(--f-nameplate);font-weight:700;font-size:24px;line-height:1;color:var(--ink);text-decoration:none;white-space:nowrap}
+.topbar .right{display:flex;align-items:center;gap:10px}
+.topbar .btn{padding:9px 14px;font-size:13px;white-space:nowrap}
+.menu-btn{display:inline-flex;align-items:center;gap:8px}
+.menu-btn svg{width:18px;height:18px}
+.menu{position:absolute;right:20px;top:100%;margin-top:6px;min-width:240px;background:var(--newsprint);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--rule-faint);display:flex;flex-direction:column;padding:6px 0}
+.menu[hidden]{display:none}
+.menu a{font-family:var(--f-head);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:12px 18px;border-bottom:1px dotted var(--rule)}
+.menu a:last-child{border-bottom:0;color:var(--stork)}
+.menu a:hover{background:var(--newsprint-deep)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 20px;border-top:1px dotted var(--rule);padding-top:16px}
+.foot .go{font-family:var(--f-head);font-weight:800;font-size:15px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--stork)}
+.foot .go:hover{text-decoration:underline}
+.foot .top{font-family:var(--f-head);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite);text-decoration:none}
+.foot .top:hover{color:var(--ink)}
+@media (max-width:700px){ [data-shop="open"] .topbar .cta{display:none} .topbar .brand{font-size:20px} }
+@media (max-width:480px){ .topbar .cta{display:none} }
+
+/* mobile order bar (open only) */
+.orderbar{display:none}
+@media (max-width:700px){
+  [data-shop="open"] .orderbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--newsprint);border-top:3px solid var(--ink);font-family:var(--f-head);font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;transition:transform .2s}
+  [data-shop="open"] body{padding-bottom:104px}
+  .orderbar.away{transform:translateY(110%)}
+  .orderbar .btn{padding:10px 18px}
+}
 </style>
 </head>
-<body>
+<body id="top">
+<nav class="topbar" aria-label="Site">
+  <a class="brand" href="#top">Newsborn Press</a>
+  <div class="right">
+    <a class="btn primary cta when-soon" href="#contact">Get first word</a>
+    <a class="btn primary cta when-open" href="#order">Order</a>
+    <button class="btn menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.5"/></svg>Sections</button>
+  </div>
+  <div class="menu" id="menu" hidden>
+    <a href="#paper">The sample paper</a>
+    <a href="#included">What you get</a>
+    <a href="#how">How it works</a>
+    <a href="#style">Pick your style</a>
+    <a href="#order" class="when-open">Order, $50</a>
+    <a href="#faq">Questions</a>
+    <a href="#about">About the press</a>
+    <a href="#contact" class="when-soon">Get first word</a>
+    <a href="#contact" class="when-open">Due-date list</a>
+  </div>
+</nav>
 
 
 <main class="sheet">
 
 <section class="mast" aria-label="Masthead">
-  <div class="folio"><span>Vol. I · No. 1</span><span>Erie, Pennsylvania</span><span class="accent">Est. 2026</span><span>Opening soon on Etsy</span></div>
+  <div class="folio"><span>Vol. I · No. 1</span><span>Erie, Pennsylvania</span><span class="accent">Est. 2026</span><span class="when-soon">Opening soon</span><span class="when-open">Now taking orders</span></div>
   <p class="kicker">Personalized newspapers for new arrivals</p>
   <h1 class="nameplate">The Newsborn Press</h1>
   <p class="motto">Every baby makes the front page.</p>
   <div class="rule"></div>
   <p class="banner">Extra! Extra!</p>
   <p class="deck">Your baby's own newspaper, written and set for the day they arrived. Their name in the nameplate, their photo under the banner, and the real weather, prices and No. 1 song from the day they were born.</p>
-  <div class="cta-row">
+  <div class="cta-row when-soon">
     <a class="btn primary" href="#paper">See a sample paper</a>
     <a class="btn" href="#contact">Get first word</a>
+  </div>
+  <div class="cta-row when-open">
+    <a class="btn primary" href="#order">Order a Birth Edition, $50</a>
+    <a class="btn" href="#paper">See a sample paper</a>
   </div>
 </section>
 
@@ -132,8 +217,8 @@ figure{margin:0;display:flex;flex-direction:column;gap:8px}
   <header><span class="label">The Birth Edition</span><h2>A real front page for the biggest news of the year</h2></header>
   <div class="cols">
     <figure>
-      <img src="assets/hero.jpg" alt="Sample Birth Edition, The Hazel Gazette: nameplate, a SHE'S HERE banner headline, an illustrated swaddled baby, the lead story, vital statistics, weather, markets, prices, the Hot 100, sports and a letter from Mom" width="1400" height="1400" loading="eager">
-      <figcaption class="caption">Sample: The Hazel Gazette. The family is fictional; the Oct. 1, 2026 facts are real. Your photo goes where the drawing is.</figcaption>
+      <img src="assets/hero.jpg" alt="Sample Birth Edition, The Roxanne May Gazette: nameplate, a SHE'S HERE banner headline, a photo of Roxanne hours old, the lead story, vital statistics, weather, markets, prices, the Hot 100, sports and a letter from Dad" width="1400" height="1400" loading="eager">
+      <figcaption class="caption">The Roxanne May Gazette: the founder's daughter, and the paper that started the press. Every fact is real for Sept. 8, 2026.</figcaption>
     </figure>
     <div style="display:flex;flex-direction:column;gap:18px">
       <p class="lede">This isn't a template you fill in yourself. You answer a few questions and send your favorite photo, and we write and lay out the paper for you.</p>
@@ -148,6 +233,11 @@ figure{margin:0;display:flex;flex-direction:column;gap:8px}
         <div><b>A letter</b><span>From you, written that day</span></div>
       </div>
     </div>
+  </div>
+<div class="foot">
+    <a class="go when-soon" href="#contact">Want one for your baby? Get first word &rarr;</a>
+    <a class="go when-open" href="#order">Make one for your baby &rarr;</a>
+    <a class="top" href="#top">Back to top &uarr;</a>
   </div>
 </section>
 
@@ -165,7 +255,12 @@ figure{margin:0;display:flex;flex-direction:column;gap:8px}
     <img src="assets/card2.jpg" alt="Phone card 2: the lead story and vital statistics" width="600" height="1066" loading="lazy">
     <img src="assets/card3.jpg" alt="Phone card 3: weather, markets and prices" width="600" height="1066" loading="lazy">
     <img src="assets/card4.jpg" alt="Phone card 4: the world she was born into, the Hot 100 and sports" width="600" height="1066" loading="lazy">
-    <img src="assets/card5.jpg" alt="Phone card 5: around town, a letter from Mom and the masthead" width="600" height="1066" loading="lazy">
+    <img src="assets/card5.jpg" alt="Phone card 5: around town, a letter from Dad and the masthead" width="600" height="1066" loading="lazy">
+  </div>
+<div class="foot">
+    <a class="go when-soon" href="#contact">Stop the presses: get first word when we open &rarr;</a>
+    <a class="go when-open" href="#order">Stop the presses, your baby is here &rarr;</a>
+    <a class="top" href="#top">Back to top &uarr;</a>
   </div>
 </section>
 
@@ -177,13 +272,18 @@ figure{margin:0;display:flex;flex-direction:column;gap:8px}
     <div class="step"><strong>3</strong><h3>We write and set it</h3><p>Every fact researched for the day and town they arrived.</p></div>
     <div class="step"><strong>4</strong><h3>Download and print</h3><p>A proof in 3 to 5 business days, with one round of edits included.</p></div>
   </div>
+<div class="foot">
+    <a class="go when-soon" href="#contact">Get first word when step 1 opens &rarr;</a>
+    <a class="go when-open" href="#order">Start with step 1 &rarr;</a>
+    <a class="top" href="#top">Back to top &uarr;</a>
+  </div>
 </section>
 
 <section class="section" id="style">
   <header><span class="label">Your style</span><h2>Pick a nameplate and an ink</h2></header>
   <div class="cols">
     <figure>
-      <img src="assets/styles.jpg" alt="Three nameplate styles for The Hazel Gazette: Traditional blackletter, Classic Didone and Letterpress small caps" width="1000" height="1000" loading="lazy">
+      <img src="assets/styles.jpg" alt="Three nameplate styles for The Roxanne May Gazette: Traditional blackletter, Classic Didone and Letterpress small caps" width="1000" height="1000" loading="lazy">
     </figure>
     <div style="display:flex;flex-direction:column;gap:20px">
       <p class="lede"><b>Traditional</b> is the blackletter of an old city daily. <b>Classic</b> is a crisp Didone. <b>Letterpress</b> looks hand-set in a small-town shop.</p>
@@ -195,13 +295,60 @@ figure{margin:0;display:flex;flex-direction:column;gap:8px}
       <p class="muted">Gold is saved for milestone editions, like a first birthday.</p>
     </div>
   </div>
+<div class="foot">
+    <a class="go when-soon" href="#contact">Get first word &rarr;</a>
+    <a class="go when-open" href="#order">Choose your style when you order &rarr;</a>
+    <a class="top" href="#top">Back to top &uarr;</a>
+  </div>
+</section>
+
+<section class="section when-open" id="order" aria-labelledby="order-h">
+  <header><span class="label">Order</span><h2 id="order-h">Stop the presses for your baby</h2></header>
+  <div class="order">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="price">$50<small>Birth Edition</small></p>
+      <ul class="ticks">
+        <li>11×17 broadsheet and 8½×11 letter edition</li>
+        <li>Classic grey versions of both</li>
+        <li>Five phone cards for the family group text</li>
+        <li>A proof in 3 to 5 business days, one round of edits included</li>
+      </ul>
+      <p class="caption">Digital files. Nothing ships, so print as many copies as you like.</p>
+    </div>
+    <div class="paths">
+      <a class="btn primary" id="pay" href="#contact">Order and pay here</a>
+      <a class="btn" id="etsy" href="#contact">Prefer Etsy? Order there</a>
+      <p class="caption">Either way, it's the same paper and the same questionnaire.</p>
+      <div class="alt"><b>Giving it as a gift?</b><p>Order here and we'll email you the questionnaire link to pass along to the parents. Baby not born yet? That works too. We start the paper when the questionnaire comes back.</p></div>
+      <div class="alt"><b>Still waiting on the big day?</b><p><a href="#contact">Leave your due date</a> and we'll send one reminder after it.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span></span><a class="top" href="#top">Back to top &uarr;</a></div>
+</section>
+
+<section class="section" id="faq" aria-labelledby="faq-h">
+  <header><span class="label">Questions</span><h2 id="faq-h">Before you order</h2></header>
+  <div class="faq">
+    <details><summary>How long does it take?</summary><p>You'll get a proof within 3 to 5 business days of sending the questionnaire. One round of edits is included, and the final files follow.</p></details>
+    <details><summary>What do I actually receive?</summary><p>Digital files: the 11×17 broadsheet, the 8½×11 letter edition, classic grey versions of both, and five phone cards. No paper is mailed, so you can print as many as you like.</p></details>
+    <details><summary>How should I print it?</summary><p>The 11×17 looks best printed at a local print or copy shop on matte paper. The letter edition prints fine at home.</p></details>
+    <details><summary>Can I order before the baby arrives?</summary><p>Yes, and it makes a good shower gift. Order anytime and fill in the questionnaire once the baby is here.</p></details>
+    <details><summary>Where do the facts come from?</summary><p>Public sources for the exact date: the National Weather Service, market data, government price reports, the music charts and the sports pages. We keep a list of sources for every paper.</p></details>
+    <details><summary>What happens to our photos and details?</summary><p>We use them only to make your paper and delete them 30 days after delivery. We never show your baby in our marketing without your written permission.</p></details>
+    <details><summary>Do you use AI?</summary><p>We use AI tools to help research the day's facts and draft copy. A person reads and checks every word before it reaches you.</p></details>
+  </div>
+<div class="foot">
+    <a class="go when-soon" href="#contact">Still curious? Get first word &rarr;</a>
+    <a class="go when-open" href="#order">Ready? Order a Birth Edition &rarr;</a>
+    <a class="top" href="#top">Back to top &uarr;</a>
+  </div>
 </section>
 
 <section class="section" id="about">
   <header><span class="label">About the press</span><h2>Started at a kitchen table in Erie</h2></header>
   <div class="cols">
     <div style="display:flex;flex-direction:column;gap:16px">
-      <p class="lede">Newsborn Press started at a kitchen table in Erie, Pennsylvania, in the fall of 2026. A new dad made his daughter a newspaper for the day she was born, with the weather off the lake, the price of gas, the song on the radio and a letter from her parents. The family kept asking for copies.</p>
+      <p class="lede">Newsborn Press started at a kitchen table in Erie, Pennsylvania, in the fall of 2026. A new dad made his daughter, Roxanne May, a newspaper for the day she was born, with the weather off the lake, the price of gas, the song on the radio and a letter from her parents. The family kept asking for copies.</p>
       <p class="lede">So now we make them for other families. Every Birth Edition is written for one baby and checked by hand.</p>
       <p class="sig">Steve Richards, Founder &amp; Pressman</p>
     </div>
@@ -216,17 +363,24 @@ figure{margin:0;display:flex;flex-direction:column;gap:8px}
       <p class="caption">We use AI tools to help research the day's facts and draft copy. A person reads and checks every word before it reaches you.</p>
     </div>
   </div>
+<div class="foot">
+    <a class="go when-soon" href="#contact">Join the first press run &rarr;</a>
+    <a class="go when-open" href="#order">Order a Birth Edition &rarr;</a>
+    <a class="top" href="#top">Back to top &uarr;</a>
+  </div>
 </section>
 
 <section class="contact" id="contact" aria-labelledby="contact-h">
-  <span class="label">Opening soon</span>
-  <h2 id="contact-h">The shop opens on Etsy soon</h2>
-  <p class="lede">Expecting, or know someone who is? Write to us and we'll let you know the day the press starts running.</p>
-  <div class="email">
-    <code id="addr">hello@newsbornpress.com</code>
-    <button class="btn" type="button" id="copy">Copy address</button>
-  </div>
+  <span class="label when-soon">Opening soon</span><span class="label when-open">Due-date list</span>
+  <h2 id="contact-h"><span class="when-soon">Get first word when the press starts running</span><span class="when-open">Baby not here yet?</span></h2>
+  <p class="lede"><span class="when-soon">Expecting, or know someone who is? Leave your email and we'll write once, the day the shop opens.</span><span class="when-open">Leave your email and due date. We'll send one reminder after the big day, and nothing else.</span></p>
+  <form class="signup" id="signup" novalidate>
+    <div class="field"><label for="su-email">Email</label><input id="su-email" name="email" type="email" autocomplete="email" required></div>
+    <div class="field"><label for="su-due">Due date (optional)</label><input id="su-due" name="due" type="date"></div>
+    <button class="btn primary" type="submit">Get first word</button>
+  </form>
   <p class="status" id="status" role="status" aria-live="polite"></p>
+  <div class="email"><span class="caption">Or write to us at</span><code id="addr">hello@newsbornpress.com</code><button class="btn" type="button" id="copy">Copy address</button></div>
 </section>
 
 <footer class="colophon">
@@ -236,14 +390,63 @@ figure{margin:0;display:flex;flex-direction:column;gap:8px}
 </footer>
 
 </main>
+<div class="orderbar when-open" id="orderbar"><span>Birth Edition · $50</span><a class="btn primary" href="#order">Order</a></div>
 <script>
+/* SHOP config: the only lines to change at launch.
+   status: "soon" until launch, "open" after Sarah's OK + 48 hours.
+   stripe: the Stripe Payment Link URL.  etsy: the Etsy listing URL.
+   signup: a form endpoint for the email list; leave "" and the form opens an email to hello@ instead. */
+var SHOP = { status: "soon", stripe: "", etsy: "", signup: "" };
+
 (function(){
+  var root=document.documentElement;
+  root.setAttribute('data-shop', SHOP.status==='open' ? 'open' : 'soon');
+
+  // where did they come from? passed to Stripe so each order shows its platform
+  var src='';
+  try{ src=(new URLSearchParams(location.search).get('utm_source')||'').replace(/[^a-z0-9_-]/gi,'').slice(0,50); }catch(e){}
+  var pay=document.getElementById('pay'), etsy=document.getElementById('etsy');
+  if(SHOP.stripe){ pay.href = SHOP.stripe + (src ? (SHOP.stripe.indexOf('?')<0?'?':'&') + 'client_reference_id=' + encodeURIComponent(src) : ''); }
+  if(SHOP.etsy){ etsy.href = SHOP.etsy; }
+
+  // copy address
   var btn=document.getElementById('copy'), st=document.getElementById('status'), addr=document.getElementById('addr');
   btn.addEventListener('click',function(){
     var text=addr.textContent;
     function pick(){var r=document.createRange();r.selectNodeContents(addr);var s=window.getSelection();s.removeAllRanges();s.addRange(r);st.textContent='Selected. Press ⌘C or Ctrl+C to copy.';}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){st.textContent='Copied to your clipboard.';},pick);}else{pick();}
   });
+
+  // signup
+  var form=document.getElementById('signup');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var em=form.email.value.trim(), due=form.due.value;
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){ st.textContent="That email address looks off. Mind checking it?"; form.email.focus(); return; }
+    if(SHOP.signup){
+      fetch(SHOP.signup,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+        .then(function(r){ if(!r.ok) throw new Error(r.status); form.reset(); st.textContent="You're on the list. We'll write once."; })
+        .catch(function(){ st.textContent="That didn't go through. Write to hello@newsbornpress.com and we'll add you."; });
+    } else {
+      var body='Please let me know when Newsborn Press opens.'+(due?'\nDue date: '+due:'')+'\nMy email: '+em;
+      location.href='mailto:hello@newsbornpress.com?subject='+encodeURIComponent('First word')+'&body='+encodeURIComponent(body);
+      st.textContent='Your email app should open with a note ready to send.';
+    }
+  });
+
+  // v1.2 section menu
+  var mb=document.getElementById('menu-btn'), menu=document.getElementById('menu');
+  function closeMenu(){ menu.hidden=true; mb.setAttribute('aria-expanded','false'); }
+  mb.addEventListener('click',function(e){ e.stopPropagation(); var open=menu.hidden; menu.hidden=!open; mb.setAttribute('aria-expanded', String(open)); if(open){ var f=menu.querySelector('a:not([hidden])'); if(f) f.focus(); } });
+  menu.addEventListener('click',function(e){ if(e.target.closest('a')) closeMenu(); });
+  document.addEventListener('click',function(e){ if(!menu.hidden && !menu.contains(e.target)) closeMenu(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !menu.hidden){ closeMenu(); mb.focus(); } });
+
+  // mobile order bar steps aside while the order section is on screen
+  var bar=document.getElementById('orderbar'), order=document.getElementById('order');
+  if(bar && order && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ bar.classList.toggle('away', es[0].isIntersecting); }).observe(order);
+  }
 })();
 </script>
 
