@@ -184,7 +184,7 @@ html{scroll-padding-top:72px}
     <a href="#included">What you get</a>
     <a href="#how">How it works</a>
     <a href="#style">Pick your style</a>
-    <a href="#order" class="when-open">Order, $50</a>
+    <a href="#order" class="when-open">Order, from $35</a>
     <a href="#faq">Questions</a>
     <a href="#about">About the press</a>
     <a href="#contact" class="when-soon">Get first word</a>
@@ -208,7 +208,7 @@ html{scroll-padding-top:72px}
     <a class="btn" href="#contact">Get first word</a>
   </div>
   <div class="cta-row when-open">
-    <a class="btn primary" href="#order">Order a Birth Edition, $50</a>
+    <a class="btn primary" href="#order">Order a Birth Edition, from $35</a>
     <a class="btn" href="#paper">See a sample paper</a>
   </div>
 </section>
@@ -306,20 +306,19 @@ html{scroll-padding-top:72px}
   <header><span class="label">Order</span><h2 id="order-h">Stop the presses for your baby</h2></header>
   <div class="order">
     <div style="display:flex;flex-direction:column;gap:18px">
-      <p class="price">$50<small>Birth Edition</small></p>
+      <p class="price">$35<small>Birth Edition, from</small></p>
       <ul class="ticks">
-        <li>11×17 broadsheet and 8½×11 letter edition</li>
-        <li>Classic grey versions of both</li>
-        <li>Five phone cards for the family group text</li>
+        <li><b>Digital, $35:</b> 11×17 and 8½×11 files, classic grey versions, five phone cards</li>
+        <li><b>Single print, $60:</b> one 11×17 on heavy cardstock, shipped free in the US, plus the digital files</li>
+        <li><b>Grandparent Edition, $80:</b> two identical prints, one for you and one for the grandparents, plus the digital files</li>
         <li>A proof in 3 to 5 business days, one round of edits included</li>
       </ul>
-      <p class="caption">Digital files. Nothing ships, so print as many copies as you like.</p>
+      <p class="caption">Prints are made locally in Erie, PA and ship rolled in a sturdy tube.</p>
     </div>
     <div class="paths">
-      <a class="btn primary" id="pay" href="#contact">Order and pay here</a>
-      <a class="btn" id="etsy" href="#contact">Prefer Etsy? Order there</a>
-      <p class="caption">Either way, it's the same paper and the same questionnaire.</p>
-      <div class="alt"><b>Giving it as a gift?</b><p>Order here and we'll email you the questionnaire link to pass along to the parents. Baby not born yet? That works too. We start the paper when the questionnaire comes back.</p></div>
+      <a class="btn primary" id="etsy" href="https://www.etsy.com/shop/NewsbornPress">Order on Etsy</a>
+      <p class="caption">Checkout, payment and messages all happen on Etsy.</p>
+      <div class="alt"><b>Giving it as a gift?</b><p>Order on Etsy and put the parents' email in the order form. We'll work with them directly. Baby not born yet? That works too. We start the paper when the questionnaire comes back.</p></div>
       <div class="alt"><b>Still waiting on the big day?</b><p><a href="#contact">Leave your due date</a> and we'll send one reminder after it.</p></div>
     </div>
   </div>
@@ -329,9 +328,9 @@ html{scroll-padding-top:72px}
 <section class="section" id="faq" aria-labelledby="faq-h">
   <header><span class="label">Questions</span><h2 id="faq-h">Before you order</h2></header>
   <div class="faq">
-    <details><summary>How long does it take?</summary><p>You'll get a proof within 3 to 5 business days of sending the questionnaire. One round of edits is included, and the final files follow.</p></details>
-    <details><summary>What do I actually receive?</summary><p>Digital files: the 11×17 broadsheet, the 8½×11 letter edition, classic grey versions of both, and five phone cards. No paper is mailed, so you can print as many as you like.</p></details>
-    <details><summary>How should I print it?</summary><p>The 11×17 looks best printed at a local print or copy shop on matte paper. The letter edition prints fine at home.</p></details>
+    <details><summary>How long does it take?</summary><p>You'll get a proof within 3 to 5 business days of sending the questionnaire. One round of edits is included, and the final files follow. Printed editions ship within a few days of your OK on the proof.</p></details>
+    <details><summary>What do I actually receive?</summary><p>Every order gets the digital files: the 11×17 broadsheet, the 8½×11 letter edition, classic grey versions of both, and five phone cards. Printed orders also get one or two 11×17 prints on heavy cardstock, shipped free in the US.</p></details>
+    <details><summary>Can you print it for me?</summary><p>Yes. Choose the Single print or the Grandparent Edition and we print it in Erie and mail it to you. Printing it yourself? The 11×17 looks best at a local print or copy shop on matte paper, and the letter edition prints fine at home.</p></details>
     <details><summary>Can I order before the baby arrives?</summary><p>Yes, and it makes a good shower gift. Order anytime and fill in the questionnaire once the baby is here.</p></details>
     <details><summary>Where do the facts come from?</summary><p>Public sources for the exact date: the National Weather Service, market data, government price reports, the music charts and the sports pages. We keep a list of sources for every paper.</p></details>
     <details><summary>What happens to our photos and details?</summary><p>We use them only to make your paper and delete them 30 days after delivery. We never show your baby in our marketing without your written permission.</p></details>
@@ -390,13 +389,13 @@ html{scroll-padding-top:72px}
 </footer>
 
 </main>
-<div class="orderbar when-open" id="orderbar"><span>Birth Edition · $50</span><a class="btn primary" href="#order">Order</a></div>
+<div class="orderbar when-open" id="orderbar"><span>Birth Edition · from $35</span><a class="btn primary" href="#order">Order</a></div>
 <script>
 /* SHOP config: the only lines to change at launch.
    status: "soon" until launch, "open" after Sarah's OK + 48 hours.
    stripe: the Stripe Payment Link URL.  etsy: the Etsy listing URL.
    signup: a form endpoint for the email list; leave "" and the form opens an email to hello@ instead. */
-var SHOP = { status: "soon", stripe: "", etsy: "", signup: "" };
+var SHOP = { status: "open", stripe: "", etsy: "https://www.etsy.com/shop/NewsbornPress", signup: "" };
 
 (function(){
   var root=document.documentElement;
@@ -406,7 +405,7 @@ var SHOP = { status: "soon", stripe: "", etsy: "", signup: "" };
   var src='';
   try{ src=(new URLSearchParams(location.search).get('utm_source')||'').replace(/[^a-z0-9_-]/gi,'').slice(0,50); }catch(e){}
   var pay=document.getElementById('pay'), etsy=document.getElementById('etsy');
-  if(SHOP.stripe){ pay.href = SHOP.stripe + (src ? (SHOP.stripe.indexOf('?')<0?'?':'&') + 'client_reference_id=' + encodeURIComponent(src) : ''); }
+  if(SHOP.stripe && pay){ pay.href = SHOP.stripe + (src ? (SHOP.stripe.indexOf('?')<0?'?':'&') + 'client_reference_id=' + encodeURIComponent(src) : ''); }
   if(SHOP.etsy){ etsy.href = SHOP.etsy; }
 
   // copy address
