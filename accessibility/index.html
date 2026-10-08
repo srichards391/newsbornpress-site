@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Accessibility · Newsborn Press</title>
+<meta name="description" content="Newsborn Press aims to meet WCAG 2.1 AA. What we've tested, what we know isn't perfect, and how to tell us about a problem.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#F1EDE4">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<style>
+/* Newsborn Press policy page (v1.0). Same tokens as the home page: newsprint, ink, one Stork Blue accent, rules not boxes. */
+:root{--newsprint:#F1EDE4;--ink:#1B1D21;--graphite:#4A4E55;--rule:#B7AE9B;--rule-faint:#D3CBBB;--stork:#355C7D;
+  --f-nameplate:"UnifrakturCook","Old English Text MT",Georgia,serif;--f-head:"Libre Franklin","Franklin Gothic Medium","Arial Narrow",Arial,sans-serif;--f-body:"Source Serif 4",Georgia,"Times New Roman",serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--newsprint:#23211D;--ink:#ECE7DC;--graphite:#BDB6A8;--rule:#5E584D;--rule-faint:#3A3631;--stork:#8FB3D1;color-scheme:dark}}
+:root[data-theme="dark"]{--newsprint:#23211D;--ink:#ECE7DC;--graphite:#BDB6A8;--rule:#5E584D;--rule-faint:#3A3631;--stork:#8FB3D1;color-scheme:dark}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{background:var(--newsprint);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.6;margin:0;padding:24px 20px 56px}
+.skip{position:absolute;left:12px;top:-60px;background:var(--ink);color:var(--newsprint);padding:10px 14px;font:800 16px var(--f-head);text-decoration:none}.skip:focus{top:12px}
+.sheet{max-width:760px;margin:0 auto}
+.folio{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--ink);padding-bottom:10px;font:600 13px var(--f-head);letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+.brand{display:inline-flex;align-items:center;gap:10px;font:700 26px/1 var(--f-nameplate);letter-spacing:0;text-transform:none;color:var(--ink);text-decoration:none}
+.brand svg{width:28px;height:28px;flex:none}
+h1{font:900 clamp(44px,10vw,84px)/.9 var(--f-head);letter-spacing:-.02em;text-transform:uppercase;margin:24px 0 10px;text-wrap:balance}
+.deck{font-style:italic;font-size:21px;color:var(--graphite);margin:0 0 18px}
+.eff{font:700 13px var(--f-head);letter-spacing:.12em;text-transform:uppercase;color:var(--stork);border-bottom:3px solid var(--ink);padding-bottom:14px;margin:0}
+h2{font:800 22px/1.25 var(--f-head);margin:34px 0 8px;text-wrap:balance}
+p,li{max-width:65ch}p{margin:0 0 12px}ul{margin:0 0 12px;padding-left:22px}li{margin-bottom:6px}
+a{color:var(--stork)}a:focus-visible{outline:3px solid var(--stork);outline-offset:2px}
+code{font:600 16px var(--f-head)}
+.foot{margin-top:44px;padding-top:12px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:600 14px var(--f-head);color:var(--graphite)}.foot a{color:var(--ink)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<main class="sheet" id="main">
+  <div class="folio"><a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 46 L32 12 L56 46 Z" fill="var(--newsprint)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/><path d="M4 46 H60 V54 H4 Z" fill="var(--stork)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/><path d="M22 30 H40 M18 36 H44 M15 41 H48" stroke="var(--ink)" stroke-width="2" opacity=".55"/></svg>The Newsborn Press</a><span>Erie, Pennsylvania</span></div>
+  <h1>Accessibility</h1>
+  <p class="deck">Every family should be able to order a paper and read this site, whatever device or assistive technology they use.</p>
+  <p class="eff">Last reviewed October 8, 2026</p>
+
+  <h2>Our standard</h2>
+  <p>We aim to meet the <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) 2.1, level AA</a> on newsbornpress.com.</p>
+
+  <h2>What we've done</h2>
+  <ul>
+    <li>Tested every page with an automated accessibility checker (axe) in light and dark mode, and fixed what it found.</li>
+    <li>Checked that the whole site works with a keyboard alone, with a visible focus outline and a "Skip to content" link.</li>
+    <li>Written text descriptions for every image, including the sample newspaper pages.</li>
+    <li>Labeled every form field and announced form results to screen readers.</li>
+    <li>Kept text contrast readable in both light and dark mode.</li>
+    <li>Turned off motion for anyone whose device is set to reduce motion.</li>
+    <li>Not used an accessibility overlay or widget. We'd rather fix the site itself.</li>
+  </ul>
+
+  <h2>What isn't perfect yet</h2>
+  <ul>
+    <li>The paper itself is a designed print layout delivered as a PDF, and the sample images use small newspaper type. If you'd like your paper in large print or as a plain-text version, ask and we'll make one at no charge.</li>
+    <li>Checkout happens on Etsy, which runs its own pages. If something there gets in your way, email us and we'll take your order directly.</li>
+  </ul>
+
+  <h2>Tell us about a problem</h2>
+  <p>If anything on this site is hard to use, email <code>hello@newsbornpress.com</code> with the page and what happened. We'll reply within two business days and help you place your order another way in the meantime.</p>
+  <div class="foot"><span>Questions? <code>hello@newsbornpress.com</code></span><span><a href="/">Front page</a> · <a href="/privacy/">Privacy</a> · <a href="/accessibility/">Accessibility</a></span></div>
+</main>
+</body>
+</html>

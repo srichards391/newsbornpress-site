@@ -1,0 +1,5 @@
+/* Newsborn Press fonts, self-hosted (SIL Open Font License, see OFL-*.txt). Latin subset, WOFF2. */
+@font-face{font-family:"Libre Franklin";src:url("libre-franklin-var.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url("source-serif-4-var.woff2") format("woff2");font-weight:200 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url("source-serif-4-italic-var.woff2") format("woff2");font-weight:200 900;font-style:italic;font-display:swap}
+@font-face{font-family:"UnifrakturCook";src:url("unifraktur-cook-700.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
